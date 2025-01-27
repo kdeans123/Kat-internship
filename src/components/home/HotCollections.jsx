@@ -11,8 +11,11 @@ const HotCollections = () => {
   const navigate = useNavigate();
 
   async function getItems() {
-    const { data } = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections")
+    try {
+      const { data } = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections")
     setItems(data);
+  } catch (error) {
+    console.error("Error fetching items:", error);
   }
 
   useEffect(() => {
@@ -29,12 +32,13 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {items.map((_, index) => (
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index} onClick={() => navigate(`${items.nftId}`)}>
+          {items.map((item, index) => (
+            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index} onClick={() => navigate(`${item.nftId}`)}>
               <div className="nft_coll">
                 <div className="nft_wrap">
                   <Link to="/item-details">
-                    <img src={nftImage} className="lazy img-fluid" alt="" />
+                    <img src={item.imageUrl} className="lazy img-fluid" alt="" />
+                    <h4>{item.title}</h4>
                   </Link>
                 </div>
                 <div className="nft_coll_pp">
