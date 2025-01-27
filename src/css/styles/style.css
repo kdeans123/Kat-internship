@@ -16714,3 +16714,46 @@ img {
 .no-cursor {
   cursor: not-allowed;
 }
+
+
+
+
+
+/* collection slider */
+
+.nft-collection-slider {
+  margin: 0 -8px;  /* Negative margin to offset padding */
+}
+.nft-collection-slider .slick-slide {
+  padding: 0 8px;  /* Add padding between slides */
+}
+/* Custom styles for slider arrows */
+.nft-collection-slider .slick-prev,
+.nft-collection-slider .slick-next {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.nft-collection-slider .slick-prev {
+  left: -20px;
+}
+.nft-collection-slider .slick-next {
+  right: -20px;
+}
+.nft-collection-slider .slick-prev:before,
+.nft-collection-slider .slick-next:before {
+  color: #333;
+  font-size: 20px;
+}
+/* Ensure arrows are visible */
+.nft-collection-slider .slick-arrow {
+  opacity: 1;
+  visibility: visible;
+}
+/* Add hover effect */
+.nft-collection-slider .slick-arrow:hover {
+  background: rgba(255, 255, 255, 1);
+}
