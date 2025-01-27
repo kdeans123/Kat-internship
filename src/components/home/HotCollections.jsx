@@ -12,11 +12,12 @@ const HotCollections = () => {
 
   async function getItems() {
     try {
-      const { data } = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections")
-    setItems(data);
-  } catch (error) {
-    console.error("Error fetching items:", error);
-  }
+        const { data } = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections");
+        setItems(data);
+    } catch (error) {
+        console.error("Error fetching items:", error);
+    }
+}
 
   useEffect(() => {
     getItems();
@@ -37,21 +38,20 @@ const HotCollections = () => {
               <div className="nft_coll">
                 <div className="nft_wrap">
                   <Link to="/item-details">
-                    <img src={item.imageUrl} className="lazy img-fluid" alt="" />
-                    <h4>{item.title}</h4>
+                    <img src={item.nftImage} className="lazy img-fluid" alt="" />
                   </Link>
                 </div>
                 <div className="nft_coll_pp">
                   <Link to="/author">
-                    <img className="lazy pp-coll" src={AuthorImage} alt="" />
+                    <img className="lazy pp-coll" src={item.authorImage} alt="" />
                   </Link>
                   <i className="fa fa-check"></i>
                 </div>
                 <div className="nft_coll_info">
                   <Link to="/explore">
-                    <h4>Pinky Ocean</h4>
+                    <h4>{item.title}</h4>
                   </Link>
-                  <span>ERC-192</span>
+                  <span>ERC-{item.code}</span>
                 </div>
               </div>
             </div>
