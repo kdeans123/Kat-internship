@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const HotCollections = () => {
+  const [items, setItems] = useState([]);
+  const navigate = useNavigate();
+
+  async function getItems() {
+    const { data } = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections")
+    setItems(data);
+  }
+
+  useEffect(() => {
+    getItems();
+  }, []);
+
   return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
@@ -14,8 +29,8 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {new Array(4).fill(0).map((_, index) => (
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
+          {items.map((_, index) => (
+            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index} onClick={() => navigate(`${items.nftId}`)}>
               <div className="nft_coll">
                 <div className="nft_wrap">
                   <Link to="/item-details">
