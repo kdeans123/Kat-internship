@@ -60,6 +60,8 @@ const NewItems = () => {
 
   // Countdown formatting function in seconds
   const formatCountdown = (timeInSeconds) => {
+    const currentTime = Date.now()
+    const timeRemaining = endTimeMilliseconds - currentTime;
     const hours = Math.floor(timeInSeconds / 3600);
     const minutes = Math.floor((timeInSeconds % 3600) / 60);
     const seconds = timeInSeconds % 60;
