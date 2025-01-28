@@ -57,6 +57,16 @@ const NewItems = () => {
     getNewItems();
   }, []);
 
+
+  // Countdown formatting function in seconds
+  const formatCountdown = (timeInSeconds) => {
+    const hours = Math.floor(timeInSeconds / 3600);
+    const minutes = Math.floor((timeInSeconds % 3600) / 60);
+    const seconds = timeInSeconds % 60;
+    return `${hours}h ${minutes}m ${seconds}s`;
+  };
+
+
   // Loading skeleton component
   const LoadingSkeleton = () => (
     <div className="px-2">
@@ -75,7 +85,7 @@ const NewItems = () => {
       </div>
     </div>
   );
-  
+
   return (
     <section id="section-items" className="no-bottom">
       <div className="container">
@@ -114,7 +124,7 @@ const NewItems = () => {
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
-                        <div className="de_countdown">5h 30m 32s</div>
+                        <div className="de_countdown"> {formatCountdown(item.countdown)} </div>
                         <div className="nft__item_wrap">
                           <div className="nft__item_extra">
                             <div className="nft__item_buttons">
