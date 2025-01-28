@@ -124,7 +124,9 @@ const NewItems = () => {
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
-                        <div className="de_countdown"> {formatCountdown(item.countdown)} </div>
+                        <div className="de_countdown"> 
+                          {item.expiryDate ? formatCountdown(item.expiryDate) : "Expired"} 
+                          </div>
                         <div className="nft__item_wrap">
                           <div className="nft__item_extra">
                             <div className="nft__item_buttons">
