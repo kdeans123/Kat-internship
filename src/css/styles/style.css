@@ -16766,3 +16766,55 @@ img {
 .nft-items-slider .slick-arrow:hover {
   background: rgba(255, 255, 255, 1);
 }
+
+
+.loading-skeleton {
+  display: flex;
+  margin: 10px 0;
+}
+
+.skeleton-author {
+  display: flex;
+  align-items: center;
+}
+
+.skeleton-image {
+  width: 60px; /* Adjust size as needed */
+  height: 60px; /* Adjust size as needed */
+  background-color: #e0e0e0; /* Light gray color */
+  border-radius: 50%; /* Make it circular */
+  margin-right: 10px;
+  animation: pulse 1.5s infinite; /* Pulse animation */
+}
+
+.skeleton-info {
+  flex: 1;
+}
+
+.skeleton-name, .skeleton-price {
+  background-color: #e0e0e0; /* Light gray color */
+  border-radius: 4px; /* Slightly rounded corners */
+  margin: 4px 0;
+}
+
+.skeleton-name {
+  width: 100%; /* Full width */
+  height: 20px; /* Height of the name placeholder */
+}
+
+.skeleton-price {
+  width: 70%; /* Adjust width for price */
+  height: 16px; /* Height of the price placeholder */
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
