@@ -16714,3 +16714,55 @@ img {
 .no-cursor {
   cursor: not-allowed;
 }
+
+
+
+
+@keyframes skeleton-loading {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.6; }
+}
+.skeleton-loading {
+  animation: skeleton-loading 1.5s infinite;
+}
+/* Carousel container styles */
+.nft-items-slider {
+  margin: 0 -8px; /* Negative margin to offset slide padding */
+}
+/* Individual slide spacing */
+.nft-items-slider .slick-slide {
+  padding: 0 8px;
+}
+/* Navigation arrow styles */
+.nft-items-slider .slick-prev,
+.nft-items-slider .slick-next {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+/* Position arrows */
+.nft-items-slider .slick-prev {
+  left: -20px;
+}
+.nft-items-slider .slick-next {
+  right: -20px;
+}
+/* Arrow icon colors */
+.nft-items-slider .slick-prev:before,
+.nft-items-slider .slick-next:before {
+  color: #333;
+  font-size: 20px;
+}
+/* Ensure arrows are visible */
+.nft-items-slider .slick-arrow {
+  opacity: 1;
+  visibility: visible;
+}
+/* Arrow hover effects */
+.nft-items-slider .slick-arrow:hover {
+  background: rgba(255, 255, 255, 1);
+}
