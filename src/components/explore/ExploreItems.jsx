@@ -24,6 +24,11 @@ const navigate = useNavigate();
     getItems();
   }, []);
 
+
+  const loadMoreItems = () => {
+    setVisibleCount(prevCount => prevCount + 4); // increase visible count by 4
+  } 
+
   return (
     <>
       <div>
@@ -89,9 +94,9 @@ const navigate = useNavigate();
         </div>
       ))}
       <div className="col-md-12 text-center">
-        <Link to="" id="loadmore" className="btn-main lead">
+        <button id="loadmore" className="btn-main lead" onClick={() => loadMoreItems(`${}`)}>
           Load more
-        </Link>
+        </button>
       </div>
     </>
   );
