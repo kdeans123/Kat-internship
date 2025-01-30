@@ -8,7 +8,8 @@ import Counter from "../UI/Counter";
 
 const ExploreItems = () => {
   const [items, setItems] = useState([]);
-const navigate = useNavigate();
+  const visibleCount = useState([]);
+  const navigate = useNavigate();
 
 
   async function getItems() {
