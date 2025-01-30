@@ -94,7 +94,7 @@ const navigate = useNavigate();
         </div>
       ))}
       <div className="col-md-12 text-center">
-        <button id="loadmore" className="btn-main lead" onClick={() => loadMoreItems(`${}`)}>
+        <button id="loadmore" className="btn-main lead" onClick={loadMoreItems}>
           Load more
         </button>
       </div>
