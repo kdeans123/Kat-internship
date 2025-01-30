@@ -36,18 +36,24 @@ const TopSellers = () => {
             <ol className="author_list">
 
               {loading ? 
+
+              // adding multiple loading states using Array - this will multiple it 12 times
               (
-                <>
-                <li className="loading-skeleton">
-                <div className="skeleton-author">
-                  <div className="skeleton-image"></div>
-                  <div className="skeleton-info">
-                    <div className="skeleton-name"></div>
-                    <div className="skeleton-price"></div>
+                [...Array(12)].map((_, index) => (
+                  <>
+                  <li className="loading-skeleton">
+                  <div className="skeleton-author">
+                    <div className="skeleton-image"></div>
+                    <div className="skeleton-info">
+                      <div className="skeleton-name"></div>
+                      <div className="skeleton-price"></div>
+                    </div>
                   </div>
-                </div>
-              </li>
-              </>
+                </li>
+                </>
+                )
+                )
+              
 
               ) : (
   
