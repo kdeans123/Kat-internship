@@ -1,6 +1,6 @@
 import React from "react";
 
-const Counter = (item) => {
+const Counter = ({ itemExpiryDate }) => {
 
   // Countdown formatting function in seconds
   const Counter = (endTimeMilliseconds) => {
@@ -19,7 +19,7 @@ const Counter = (item) => {
   return (
     <>
                             <div className="de_countdown"> 
-                          {item.expiryDate ? Counter(item.expiryDate) : "Expired"} 
+                          {itemExpiryDate ? Counter(itemExpiryDate) : "Expired"} 
                           </div>
     
     </>

@@ -120,10 +120,7 @@ const NewItems = () => {
                           </Link>
                         </div>
 
-
-                          <Counter />
-
-
+                          <Counter itemExpiryDate={item.expiryDate} />
 
                         <div className="nft__item_wrap">
                           <div className="nft__item_extra">

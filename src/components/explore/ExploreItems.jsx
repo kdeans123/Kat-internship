@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
+import Counter from "../UI/Counter";
 
 
 
@@ -50,7 +51,7 @@ const navigate = useNavigate();
                 <i className="fa fa-check"></i>
               </Link>
             </div>
-            <div className="de_countdown">5h 30m 32s</div>
+            <Counter itemExpiryDate={item.expiryDate} />
 
             <div className="nft__item_wrap">
               <div className="nft__item_extra">
