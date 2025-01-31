@@ -47,25 +47,49 @@ const ExploreItems = () => {
     setVisibleCount((prevCount) => prevCount + 4); // increase visible count by 4
   };
 
-
-    // Loading skeleton component
-    const LoadingSkeleton = () => (
-      <div className="px-2">
-        <div className="nft__item" style={{ opacity: 0.7 }}>
-          <div className="author_list_pp">
-            <div className="lazy skeleton-loading" style={{ width: "50px", height: "50px", borderRadius: "50%", background: "#eee" }}></div>
-          </div>
-          <div className="de_countdown skeleton-loading" style={{ background: "#eee", height: "20px", width: "80%" }}></div>
-          <div className="nft__item_wrap">
-            <div className="skeleton-loading" style={{ height: "200px", background: "#eee", borderRadius: "8px" }}></div>
-          </div>
-          <div className="nft__item_info">
-            <div className="skeleton-loading" style={{ height: "20px", width: "70%", background: "#eee", margin: "10px 0" }}></div>
-            <div className="skeleton-loading" style={{ height: "15px", width: "40%", background: "#eee" }}></div>
-          </div>
+  // Loading skeleton component
+  const LoadingSkeleton = () => (
+    <div className="px-2">
+      <div className="nft__item" style={{ opacity: 0.7 }}>
+        <div className="author_list_pp">
+          <div
+            className="lazy skeleton-loading"
+            style={{
+              width: "50px",
+              height: "50px",
+              borderRadius: "50%",
+              background: "#eee",
+            }}
+          ></div>
+        </div>
+        <div
+          className="de_countdown skeleton-loading"
+          style={{ background: "#eee", height: "20px", width: "20%", border: "none" }}
+        ></div>
+        <div className="nft__item_wrap">
+          <div
+            className="skeleton-loading"
+            style={{ height: "200px", background: "#eee", borderRadius: "8px", width: "100%"}}
+          ></div>
+        </div>
+        <div className="nft__item_info">
+          <div
+            className="skeleton-loading"
+            style={{
+              height: "20px",
+              width: "70%",
+              background: "#eee",
+              margin: "10px 0",
+            }}
+          ></div>
+          <div
+            className="skeleton-loading"
+            style={{ height: "15px", width: "40%", background: "#eee" }}
+          ></div>
         </div>
       </div>
-    );
+    </div>
+  );
 
   return (
     <>
@@ -83,7 +107,13 @@ const ExploreItems = () => {
       </div>
 
       {isLoading ? (
-        <LoadingSkeleton/>
+        new Array(8).fill(0).map((_, index) => 
+    <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+
+        <LoadingSkeleton key={index} />
+      
+        </div>
+      )
       ) : (
         <>
           {items.slice(0, visibleCount).map((item, index) => (
