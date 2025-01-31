@@ -25,6 +25,33 @@ const ExploreItems = () => {
     getItems();
   }, []);
 
+  function filterItems(filter) {
+    switch (filter) {
+      case "price_low_to_high":
+        return setItems(
+          items
+          .slice()
+          .sort(
+            (a, b) =>  a.price - b.price)
+        );
+        case "price_high_to_low":
+          return setItems(
+            items
+            .slice()
+            .sort(
+              (a, b) =>  b.price - a.price)
+          );
+          case "likes_high_to_low":
+            return setItems(
+              items
+              .slice()
+              .sort(
+                (a, b) =>  b.likes - a.likes)
+            );
+          default: break;
+    }
+  }
+
 
   const loadMoreItems = () => {
     setVisibleCount(prevCount => prevCount + 4); // increase visible count by 4
@@ -33,14 +60,17 @@ const ExploreItems = () => {
   return (
     <>
       <div>
-        <select id="filter-items" defaultValue="">
+        <select 
+        id="filter-items" 
+        onChange={(event) => filterItems(event.target.value)}
+        defaultValue="">
           <option value="">Default</option>
           <option value="price_low_to_high">Price, Low to High</option>
           <option value="price_high_to_low">Price, High to Low</option>
           <option value="likes_high_to_low">Most liked</option>
         </select>
       </div>
-      {items.map((item, index) => (
+      {items.slice(0, visibleCount).map((item, index) => (
         <div
           key={index}
           className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
@@ -94,11 +124,16 @@ const ExploreItems = () => {
           </div>
         </div>
       ))}
+
+{/*  to remove the Load more button when all the items are shown */}
+      { visibleCount < 16 &&
       <div className="col-md-12 text-center">
-        <button id="loadmore" className="btn-main lead" onClick={loadMoreItems}>
-          Load more
-        </button>
-      </div>
+      <button id="loadmore" className="btn-main lead" onClick={loadMoreItems}>
+        Load more
+      </button>
+    </div>
+      }
+
     </>
   );
 };
