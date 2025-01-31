@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 
 const AuthorItems = () => {
+  const [items, setItems] = useState([]);
+
+
+  async function getItems() {
+    try {
+      setIsLoading(true);
+      const { data } = await axios.get(
+        "https://us-central1-nft-cloud-functions.cloudfunctions.net/authors"
+      );
+      setItems(data);
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getItems();
+  }, []);
+
   return (
     <div className="de_tab_content">
       <div className="tab-1">
