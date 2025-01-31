@@ -5,19 +5,25 @@ import axios from "axios";
 import Counter from "../UI/Counter";
 
 
+// CHANGE
+
 
 const ExploreItems = () => {
   const [items, setItems] = useState([]);
   const [visibleCount, setVisibleCount] = useState(8);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
 
   async function getItems() {
     try {
+        setIsLoading(true);
         const { data } = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/explore");
         setItems(data);
     } catch (error) {
         console.error("Error fetching items:", error);
+    } finally {
+      setIsLoading(false);
     }
 }
 
