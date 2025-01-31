@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 // Import Slider and its required CSS
+
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Counter from "../UI/Counter";
 
 
 const NewItems = () => {
@@ -58,17 +61,7 @@ const NewItems = () => {
   }, []);
 
 
-  // Countdown formatting function in seconds
-  const formatCountdown = (endTimeMilliseconds) => {
-    const currentTime = Date.now()
-    const timeRemaining = Math.max(0, endTimeMilliseconds - currentTime);
-    const timeInSeconds = Math.floor(timeRemaining / 1000);
-    
-    const hours = Math.floor(timeInSeconds / 3600);
-    const minutes = Math.floor((timeInSeconds % 3600) / 60);
-    const seconds = timeInSeconds % 60;
-    return `${hours}h ${minutes}m ${seconds}s`;
-  };
+
 
 
   // Loading skeleton component
@@ -104,6 +97,7 @@ const NewItems = () => {
           {/* Carousel Container */}
           <div className="col-lg-12">
             <div className="nft-items-slider">
+           
               {isLoading ? (
                 // Loading state carousel
                 <Slider {...settings}>
@@ -111,6 +105,7 @@ const NewItems = () => {
                     <LoadingSkeleton key={index} />
                   ))}
                 </Slider>
+                
               ) : (
                 // Loaded content carousel
                 <Slider {...settings}>
@@ -128,9 +123,9 @@ const NewItems = () => {
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
-                        <div className="de_countdown"> 
-                          {item.expiryDate ? formatCountdown(item.expiryDate) : "Expired"} 
-                          </div>
+
+                          <Counter itemExpiryDate={item.expiryDate} />
+
                         <div className="nft__item_wrap">
                           <div className="nft__item_extra">
                             <div className="nft__item_buttons">
