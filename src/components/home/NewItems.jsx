@@ -97,6 +97,7 @@ const NewItems = () => {
           {/* Carousel Container */}
           <div className="col-lg-12">
             <div className="nft-items-slider">
+           
               {isLoading ? (
                 // Loading state carousel
                 <Slider {...settings}>
@@ -104,6 +105,7 @@ const NewItems = () => {
                     <LoadingSkeleton key={index} />
                   ))}
                 </Slider>
+                
               ) : (
                 // Loaded content carousel
                 <Slider {...settings}>
