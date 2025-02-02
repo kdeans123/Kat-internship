@@ -6,7 +6,7 @@ import axios from "axios";
 
 const Author = () => {
   const [author, setAuthor] = useState({ nftCollection: [] });
-  const { authorId } = useParams;
+  const { authorId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
 
 
