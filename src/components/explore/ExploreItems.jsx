@@ -10,7 +10,7 @@ const ExploreItems = () => {
   const [items, setItems] = useState([]);
   const [visibleCount, setVisibleCount] = useState(8);
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
+
 
   async function getItems() {
     try {
@@ -124,7 +124,6 @@ const ExploreItems = () => {
             >
               <div
                 className="nft__item"
-                onClick={() => navigate(`${item.nftId}`)}
               >
                 <div className="author_list_pp">
                   <Link
