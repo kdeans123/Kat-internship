@@ -8,6 +8,8 @@ const Author = () => {
   const [author, setAuthor] = useState({ nftCollection: [] });
   const { authorId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [isFollowing, setIsFollowing] = useState(false);
+  const [followersCount, setFollowersCount] = useState(0)
 
 
   async function getAuthor() {
@@ -24,9 +26,19 @@ const Author = () => {
     }
   }
 
+
+  const handleFollowButton = () =>
+    setIsFollowing(!isFollowing);
+  if(!isFollowing) {
+    setFollowersCount(followersCount + 1);
+  }
+  else {
+    setFollowersCount(followersCount - 1);
+  }
+
   useEffect(() => {
     getAuthor();
-  }, [isLoading]);
+  }, [isLoading, getAuthor]);
 
 
   return (
@@ -69,9 +81,9 @@ const Author = () => {
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
                       <div className="profile_follower">{author.followers}</div>
-                      <Link to="#" className="btn-main">
-                        Follow
-                      </Link>
+                      <button className="btn-main" onClick={handleFollowButton}>
+                      {isFollowing ? 'Unfollow' : 'Follow'}
+                      </button>
                     </div>
                   </div>
                 </div>
