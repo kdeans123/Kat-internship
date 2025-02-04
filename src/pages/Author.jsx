@@ -8,8 +8,8 @@ const Author = () => {
   const [author, setAuthor] = useState({ nftCollection: [] });
   const { authorId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [isFollowing, setIsFollowing] = useState(false);
-  const [followersCount, setFollowersCount] = useState(0)
+  const [prevState, setIsFollowing] = useState(false);
+  const [prevCount, setFollowersCount] = useState(0)
 
 
   async function getAuthor() {
@@ -19,7 +19,7 @@ const Author = () => {
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
       );
       setAuthor(data);
-      setFollowersCount(data.followers);  // to get the correct followers from the API
+      setFollowersCount(data.followers);  // this is added to get the correct followers from the API
     } catch (error) {
       console.error("Error fetching items:", error);
     } finally {
@@ -29,14 +29,12 @@ const Author = () => {
 
 
   const handleFollowButton = () => {
-    setIsFollowing(!isFollowing);
-  if(!isFollowing) {
-    setFollowersCount(followersCount + 1);
+    setIsFollowing((prevState) => !prevState);
+    setFollowersCount((prevCount) => 
+      isFollowing ? prevCount -1 : prevCount + 1
+    );
   }
-  else {
-    setFollowersCount(followersCount - 1);
-  }
-  }
+
 
   useEffect(() => {
     getAuthor();
@@ -82,7 +80,7 @@ const Author = () => {
                   </div>
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
-                      <div className="profile_follower">{author.followers}</div>
+                      <div className="profile_follower">{author.followers + followersCount}</div>
                       <button className="btn-main" onClick={handleFollowButton}>
                       {isFollowing ? 'Unfollow' : 'Follow'}
                       </button>
