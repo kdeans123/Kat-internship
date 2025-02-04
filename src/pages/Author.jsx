@@ -19,6 +19,7 @@ const Author = () => {
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
       );
       setAuthor(data);
+      setFollowersCount(data.followers);  // to get the correct followers from the API
     } catch (error) {
       console.error("Error fetching items:", error);
     } finally {
@@ -27,13 +28,14 @@ const Author = () => {
   }
 
 
-  const handleFollowButton = () =>
+  const handleFollowButton = () => {
     setIsFollowing(!isFollowing);
   if(!isFollowing) {
     setFollowersCount(followersCount + 1);
   }
   else {
     setFollowersCount(followersCount - 1);
+  }
   }
 
   useEffect(() => {
