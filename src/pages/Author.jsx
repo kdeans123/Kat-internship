@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const Author = () => {
@@ -27,6 +27,10 @@ const Author = () => {
     }
   }
 
+    getAuthor();
+  }, [authorId, isLoading]);
+
+
 
   const handleFollowButton = () => {
     setIsFollowing((prevState) => !prevState);
@@ -37,8 +41,6 @@ const Author = () => {
 
 
 
-    getAuthor();
-  }, [authorId]);
 
 
   return (

@@ -98,6 +98,7 @@ const NewItems = () => {
           <div className="col-lg-12">
             <div className="nft-items-slider">
            
+           
               {isLoading ? (
                 // Loading state carousel
                 <Slider {...settings}>
