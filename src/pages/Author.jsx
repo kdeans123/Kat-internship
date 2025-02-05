@@ -37,7 +37,7 @@ const Author = () => {
     setFollowersCount((prevCount) => 
       isFollowing ? prevCount -1 : prevCount + 1
     );
-  }
+  };
 
 
 
