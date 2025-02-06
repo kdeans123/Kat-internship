@@ -9,7 +9,7 @@ const Author = () => {
   const { authorId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [isFollowing, setIsFollowing] = useState(false);
-  const [followersCount, setFollowersCount] = useState(0)
+ 
 
   useEffect(() => {
   async function getAuthor() {
@@ -18,8 +18,7 @@ const Author = () => {
       const { data } = await axios.get(
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
       );
-      setAuthor(data);
-      setFollowersCount(data.followers);  // this is added to get the correct followers from the API
+      setAuthor(data); // this is added to get the correct followers from the API
     } catch (error) {
       console.error("Error fetching items:", error);
     } finally {
@@ -34,8 +33,11 @@ const Author = () => {
 
   const handleFollowButton = () => {
     setIsFollowing((prevState) => !prevState);
-    setFollowersCount((prevCount) => 
-      isFollowing ? prevCount -1 : prevCount + 1
+    setAuthor((prevAuthor) => ({
+      ...prevAuthor,
+      followers: isFollowing ? prevAuthor.followers -1 : prevAuthor.followers + 1,
+    })
+
     );
   };
 
@@ -82,7 +84,7 @@ const Author = () => {
                   </div>
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
-                      <div className="profile_follower">{author.followers + followersCount} followers</div>
+                      <div className="profile_follower">{author.followers} followers</div>
                       <button className="btn-main" onClick={handleFollowButton}>
                       {isFollowing ? 'Unfollow' : 'Follow'}
                       </button>
