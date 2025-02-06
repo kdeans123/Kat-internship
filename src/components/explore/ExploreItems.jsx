@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
 import Counter from "../UI/Counter";
@@ -10,7 +10,6 @@ const ExploreItems = () => {
   const [items, setItems] = useState([]);
   const [visibleCount, setVisibleCount] = useState(8);
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
 
   async function getItems() {
     try {
@@ -124,7 +123,6 @@ const ExploreItems = () => {
             >
               <div
                 className="nft__item"
-                onClick={() => navigate(`${item.nftId}`)}
               >
                 <div className="author_list_pp">
                   <Link
@@ -165,7 +163,7 @@ const ExploreItems = () => {
                   </Link>
                 </div>
                 <div className="nft__item_info">
-                  <Link to="/item-details">
+                  <Link to={`/item-details/${item.nftId}`}>
                     <h4>{item.title}</h4>
                   </Link>
                   <div className="nft__item_price">{item.price}</div>
