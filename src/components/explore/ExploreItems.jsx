@@ -124,7 +124,6 @@ const ExploreItems = () => {
             >
               <div
                 className="nft__item"
-                onClick={() => navigate(`${item.nftId}`)}
               >
                 <div className="author_list_pp">
                   <Link
@@ -156,7 +155,7 @@ const ExploreItems = () => {
                       </div>
                     </div>
                   </div>
-                  <Link to="/item-details">
+                  <Link to={`/item-details/${item.nftId}`}>
                     <img
                       src={item.nftImage}
                       className="lazy nft__item_preview"
