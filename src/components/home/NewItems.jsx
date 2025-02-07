@@ -98,6 +98,7 @@ const NewItems = () => {
           <div className="col-lg-12">
             <div className="nft-items-slider">
            
+           
               {isLoading ? (
                 // Loading state carousel
                 <Slider {...settings}>
@@ -114,7 +115,7 @@ const NewItems = () => {
                       <div className="nft__item" >
                         <div className="author_list_pp">
                           <Link
-                            to="/author"
+                            to={`/author/${item.authorId}`}
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             title="Creator: Monica Lucas"
