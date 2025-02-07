@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 
 const HotCollections = () => {
   const [items, setItems] = useState([]);
-  const navigate = useNavigate();
 
   async function getItems() {
     try {
@@ -34,7 +30,7 @@ const HotCollections = () => {
             </div>
           </div>
           {items.map((item, index) => (
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index} onClick={() => navigate(`${item.nftId}`)}>
+            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
               <div className="nft_coll">
                 <div className="nft_wrap">
                   <Link to="/item-details">
@@ -42,7 +38,7 @@ const HotCollections = () => {
                   </Link>
                 </div>
                 <div className="nft_coll_pp">
-                  <Link to="/author">
+                  <Link to={`/author/${item.authorId}`}>
                     <img className="lazy pp-coll" src={item.authorImage} alt="" />
                   </Link>
                   <i className="fa fa-check"></i>
