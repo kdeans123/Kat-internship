@@ -13,7 +13,7 @@ import Counter from "../UI/Counter";
 const NewItems = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
+
 
   // Carousel settings configuration
   const settings = {
@@ -111,7 +111,7 @@ const NewItems = () => {
                 <Slider {...settings}>
                   {items.map((item, index) => (
                     <div className="px-2" key={index}>
-                      <div className="nft__item" onClick={() => navigate(`${item.nftId}`)}>
+                      <div className="nft__item" >
                         <div className="author_list_pp">
                           <Link
                             to="/author"
