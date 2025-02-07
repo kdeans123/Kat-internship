@@ -30,10 +30,10 @@ const HotCollections = () => {
             </div>
           </div>
           {items.map((item, index) => (
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
+            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index} >
               <div className="nft_coll">
                 <div className="nft_wrap">
-                  <Link to="/item-details">
+                  <Link to={`/item-details/${item.nftId}`}>
                     <img src={item.nftImage} className="lazy img-fluid" alt="" />
                   </Link>
                 </div>
@@ -44,7 +44,7 @@ const HotCollections = () => {
                   <i className="fa fa-check"></i>
                 </div>
                 <div className="nft_coll_info">
-                  <Link to="/explore">
+                  <Link to={`/item-details/${item.nftId}`}>
                     <h4>{item.title}</h4>
                   </Link>
                   <span>ERC-{item.code}</span>
