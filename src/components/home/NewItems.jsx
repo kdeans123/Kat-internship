@@ -90,7 +90,7 @@ const NewItems = () => {
           {/* Section Header */}
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>New Items</h2>
+              <h2 data-aos="fade-up">New Items</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
@@ -120,7 +120,7 @@ const NewItems = () => {
                             data-bs-placement="top"
                             title="Creator: Monica Lucas"
                           >
-                            <img className="lazy" src={item.authorImage} alt="" />
+                            <img className="lazy" src={item.authorImage} alt="" data-aos="fade-up"/>
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
@@ -130,17 +130,17 @@ const NewItems = () => {
                         <div className="nft__item_wrap">
                           <div className="nft__item_extra">
                             <div className="nft__item_buttons">
-                              <button>Buy Now</button>
+                              <button data-aos="fade-up">Buy Now</button>
                               <div className="nft__item_share">
-                                <h4>Share</h4>
+                                <h4 data-aos="fade-up">Share</h4>
                                 <a href="" target="_blank" rel="noreferrer">
-                                  <i className="fa fa-facebook fa-lg"></i>
+                                  <i className="fa fa-facebook fa-lg" data-aos="fade-up"></i>
                                 </a>
                                 <a href="" target="_blank" rel="noreferrer">
-                                  <i className="fa fa-twitter fa-lg"></i>
+                                  <i className="fa fa-twitter fa-lg" data-aos="fade-up"></i>
                                 </a>
                                 <a href="">
-                                  <i className="fa fa-envelope fa-lg"></i>
+                                  <i className="fa fa-envelope fa-lg" data-aos="fade-up"></i>
                                 </a>
                               </div>
                             </div>
@@ -150,17 +150,18 @@ const NewItems = () => {
                               src={item.nftImage}
                               className="lazy nft__item_preview"
                               alt=""
+                              data-aos="fade-up"
                             />
                           </Link>
                         </div>
-                        <div className="nft__item_info">
+                        <div className="nft__item_info" data-aos="fade-up">
                           <Link to={`/item-details/${item.nftId}`}>
-                            <h4>{item.title}</h4>
+                            <h4 data-aos="fade-up">{item.title}</h4>
                           </Link>
-                          <div className="nft__item_price">{item.price}</div>
+                          <div className="nft__item_price" data-aos="fade-up">{item.price}</div>
                           <div className="nft__item_like">
-                            <i className="fa fa-heart"></i>
-                            <span>{item.likes}</span>
+                            <i className="fa fa-heart" data-aos="fade-up"></i>
+                            <span data-aos="fade-up">{item.likes}</span>
                           </div>
                         </div>
                       </div>

@@ -28,8 +28,8 @@ const TopSellers = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Top Sellers</h2>
-              <div className="small-border bg-color-2"></div>
+              <h2 data-aos="fade-up">Top Sellers</h2>
+              <div className="small-border bg-color-2" data-aos="fade-up"></div>
             </div>
           </div>
           <div className="col-md-12">
@@ -65,13 +65,14 @@ const TopSellers = () => {
           className="lazy pp-author"
           src={seller.authorImage}
           alt=""
+          data-aos="fade-up"
         />
-        <i className="fa fa-check"></i>
+        <i className="fa fa-check" data-aos="fade-up"></i>
       </Link>
     </div>
     <div className="author_list_info">
       <Link to={`/author/${seller.authorId}`}>{seller.authorName}</Link>
-      <span>{seller.price}</span>
+      <span data-aos="fade-up">{seller.price}</span>
     </div>
   </li>
 )))
