@@ -25,7 +25,7 @@ const HotCollections = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Hot Collections</h2>
+              <h2 data-aos="fade-up">Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
@@ -34,20 +34,20 @@ const HotCollections = () => {
               <div className="nft_coll">
                 <div className="nft_wrap">
                   <Link to={`/item-details/${item.nftId}`}>
-                    <img src={item.nftImage} className="lazy img-fluid" alt="" />
+                    <img src={item.nftImage} className="lazy img-fluid" alt="" data-aos="fade-up"/>
                   </Link>
                 </div>
                 <div className="nft_coll_pp">
                   <Link to={`/author/${item.authorId}`}>
-                    <img className="lazy pp-coll" src={item.authorImage} alt="" />
+                    <img className="lazy pp-coll" src={item.authorImage} alt="" data-aos="fade-up"/>
                   </Link>
-                  <i className="fa fa-check"></i>
+                  <i className="fa fa-check" data-aos="fade-up"></i>
                 </div>
                 <div className="nft_coll_info">
                   <Link to={`/item-details/${item.nftId}`}>
-                    <h4>{item.title}</h4>
+                    <h4 data-aos="fade-up">{item.title}</h4>
                   </Link>
-                  <span>ERC-{item.code}</span>
+                  <span data-aos="fade-up">ERC-{item.code}</span>
                 </div>
               </div>
             </div>
