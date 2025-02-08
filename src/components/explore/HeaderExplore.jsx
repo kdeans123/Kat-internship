@@ -20,19 +20,19 @@ const HeaderExplore = () => {
               type="text"
             />{" "}
             <a href="#" id="btn-submit">
-              <i className="fa fa-search bg-color-secondary"></i>
+              <i className="fa fa-search bg-color-secondary" data-aos="fade-up"></i>
             </a>
             <div className="clearfix"></div>
           </div>
         </form>
 
         <div id="item_category" className="dropdown">
-          <a href="#" className="btn-selector">
+          <a href="#" className="btn-selector" data-aos="fade-up">
             All categories
           </a>
           <ul>
             <li className="active">
-              <span>All categories</span>
+              <span >All categories</span>
             </li>
             <li>
               <span>Art</span>
@@ -62,7 +62,7 @@ const HeaderExplore = () => {
         </div>
 
         <div id="buy_category" className="dropdown">
-          <a href="#" className="btn-selector">
+          <a href="#" className="btn-selector" data-aos="fade-up">
             Buy Now
           </a>
           <ul>
